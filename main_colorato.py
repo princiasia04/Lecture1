@@ -4,7 +4,7 @@ from datetime import date
 from gestionale.core.clienti import Cliente, ClienteRecord
 from gestionale.core.prodotti import ProdottoRecord
 from gestionale.vendite.fatture import Fattura
-from gestionale.vendite.ordini import RigaOrdine, Ordine
+from gestionale.vendite.ordini import RigaO
 
 # Inizializza colorama
 init(autoreset=True)
