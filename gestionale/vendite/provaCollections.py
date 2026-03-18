@@ -1,6 +1,9 @@
 from gestionale.core.clienti import ClienteRecord
 from gestionale.core.prodotti import ProdottoRecord
-from collections import Counter
+from collections import Counter, deque
+
+from gestionale.vendite.ordini import RigaOrdine, Ordine
+
 p1 = ProdottoRecord("Laptop", 1200.0)
 p2 = ProdottoRecord("Mouse", 20.0)
 p3 = ProdottoRecord("Auricolari", 250.0)
@@ -242,4 +245,20 @@ print(f"Vendite gennaio: {vendite_gennaio}")
 #c.most_common(n)#restituisce fli n elementi più frequenti
 #c.total() #somma dei conteggi
 
-#defauldicts
+#Deque
+
+coda_ordini = deque()
+for i in range (1, 10):
+    cliente = ClienteRecord(f"Cliente {i}", f"Cliente {i}@polito.it", "Gold")
+    prodotto = ProdottoRecord(f"Prodotto {i}", 1000.0*i)
+    ordine = Ordine([RigaOrdine(prodotto, 1)], cliente)
+    coda_ordini.append(ordine)
+
+print(f"Ordini in coda: {len(coda_ordini)}")
+
+while coda_ordini:
+    ordine_corrente = coda_ordini.popleft()
+    print(f"Sto gestebndo l'ordine del cliente: {ordine_corrente.cliente}")
+
+
+print(f"Ho processato tutti gli ordini")
