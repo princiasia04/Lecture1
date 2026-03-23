@@ -1,7 +1,7 @@
 import flet as ft
 
-from gestionale.vendite.controller import Controller
-from gestionale.vendite.view import View
+from UI.controller import Controller
+from UI.view import View
 
 
 def main (page: ft.Page):
